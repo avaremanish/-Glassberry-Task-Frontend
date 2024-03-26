@@ -12,6 +12,17 @@ useEffect (() =>{
       .then(result => setProduct(result.data))
       .catch(err => console.log(err))
 },[])
+
+
+const handleDelete = (id) => {
+  axios
+    .delete("http://localhost:3001/deleteProduct/" + id)
+    .then((res) => {console.log(res)
+            window.location.reload()
+    })
+    .catch((err) => console.log(err));
+};
+
   return (
     <div className="d-flex vh-100 p-3 mb-2 bg-dark text-white justify-content-center align-items-center">
       <div className="w-50 bg-white rounded p-3">
@@ -46,7 +57,7 @@ useEffect (() =>{
                  <Link to={`/update/${product._id}`}  class="btn btn-primary">
         Edit
         </Link>
-                    <button type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" onClick={(e)=> handleDelete(product._id)} >
                       Delete
                     </button>
                   </td>
