@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../product/product.css";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Product = () => {
 
-  const [product , setProduct] = useState([
-    {
-    name: "iphone" , features:"camera" , description:" best Mobile phone"
-    },
-    {
-    name: "DSLR" , features:"DSLR-camera" , description:" best camera"
-    },
-    {
-    name: "macbook" , features:"laptop" , description:" best laptop"
-    },
+  const [product , setProduct] = useState([]);
 
-]);
+useEffect (() =>{
+      axios.get('http://localhost:3001')
+      .then(result => setProduct(result.data))
+      .catch(err => console.log(err))
+},[])
   return (
     <div className="d-flex vh-100 p-3 mb-2 bg-dark text-white justify-content-center align-items-center">
       <div className="w-50 bg-white rounded p-3">
@@ -47,7 +43,7 @@ const Product = () => {
                     {" "}
                  
                   
-                 <Link to="/update"  class="btn btn-primary">
+                 <Link to={`/update/${product._id}`}  class="btn btn-primary">
         Edit
         </Link>
                     <button type="button" class="btn btn-danger">
