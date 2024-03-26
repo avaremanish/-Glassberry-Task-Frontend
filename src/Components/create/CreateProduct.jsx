@@ -8,14 +8,31 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 function CreateProduct() {
 
-  const [name, setName] = useState()
-  const [features, setFeatures] = useState()
-  const [description, setDescription] = useState()
-  const [image, setImage] = useState();
-  const [category, setCategory] = useState();
-  const [subcategory, setSubcategory] = useState();
-  const [brand, setBrand] = useState();
-  const [date, setDate] = useState();
+  const categories = [
+    {
+      name: "Alphabets",
+      subcategories: ["A", "B", "C"],
+    },
+    {
+      name: "Numbers",
+      subcategories: ["1", "2", "3"],
+    },
+    {
+      name: "Symbols",
+      subcategories: ["!", "@", "#"],
+    },
+  ];
+
+
+
+  const [name, setName] = useState('')
+  const [features, setFeatures] = useState('')
+  const [description, setDescription] = useState('')
+  const [image, setImage] = useState([]);
+  const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+  const [brand, setBrand] = useState('');
+  const [date, setDate] = useState('');
 
   const navigate = useNavigate();
 
@@ -49,6 +66,11 @@ const Submit = (e) => {
      .replace(/&nbsp;/g, " "); // Replace &nbsp; with space
    setDescription(strippedContent.trim()); // Update the state with stripped content
  };
+
+   const handleCategoryChange = (e) => {
+     setCategory(e.target.value);
+     setSubcategory(""); // Reset sub-category when category changes
+   };
 
 
   return (
@@ -114,14 +136,52 @@ const Submit = (e) => {
           <div className="mb-2">
             <label htmlFor=""> Product Image</label>
             <input
+              type="file"
+              multiple
+              className="form-control"
+              onChange={(e) => setImage(e.target.files)}
+            />
+            {/* <input
               type="text"
               placeholder="Enter Product Image"
               className="form-control"
               onChange={(e) => setImage(e.target.value)}
-            />
+            /> */}
           </div>
+          <div className="mb-2">
+            <label htmlFor=""> Product Category</label>
+            <select
+              className="custom-select"
+              onChange={handleCategoryChange}
+              value={category}>
+              <option value="">Choose...</option>
+              {categories.map((cat) => (
+                <option key={cat.name} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* Sub-category  */}
+          <div className="mb-2">
+            <label htmlFor=""> Product Sub-category</label>
+            <select
+              className="custom-select"
+              onChange={(e) => setSubcategory(e.target.value)}
+              value={subcategory}>
+              <option value="">Choose...</option>
+              {categories
+                .find((cat) => cat.name === category)
+                ?.subcategories.map((subcat) => (
+                  <option key={subcat} value={subcat}>
+                    {subcat}
+                  </option>
+                ))}
+            </select>
+          </div>
+
           {/* Product Category */}
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">
                 Product Category
@@ -136,9 +196,9 @@ const Submit = (e) => {
               <option value="Numbers">1-9</option>
               <option value="Symbols">!-*</option>
             </select>
-          </div>
+          </div> */}
           {/* Sub-category  */}
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">
                 Product Sub-category
@@ -153,7 +213,7 @@ const Submit = (e) => {
               <option value="2">B</option>
               <option value="3">C</option>
             </select>
-          </div>
+          </div> */}
           {/* Product Brand */}
           <div className="mb-2">
             <label htmlFor=""> Product Brand</label>

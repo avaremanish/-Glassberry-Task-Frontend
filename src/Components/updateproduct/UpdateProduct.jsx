@@ -8,6 +8,23 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const UpdateProduct = () => {
 
+
+    const categories = [
+      {
+        name: "Alphabets",
+        subcategories: ["A", "B", "C"],
+      },
+      {
+        name: "Numbers",
+        subcategories: ["1", "2", "3"],
+      },
+      {
+        name: "Symbols",
+        subcategories: ["!", "@", "#"],
+      },
+    ];
+
+
            const{id} = useParams()
             const [name, setName] = useState();
             const [features, setFeatures] = useState();
@@ -35,6 +52,7 @@ const UpdateProduct = () => {
                 })
                 .catch(err => console.log(err))
             }, []);
+            
 
 const Update = (e) => {
   e.preventDefault();
@@ -64,6 +82,29 @@ const Update = (e) => {
      .replace(/&nbsp;/g, " "); // Replace &nbsp; with space
    setDescription(strippedContent.trim()); // Update the state with stripped content
  };
+
+
+//  categories Function
+
+const handleCategoryChange = (e) => {
+ const selectedCategory = e.target.value;
+ setCategory(selectedCategory);
+ console.log("Updated category:", selectedCategory); // Debugging line
+ const matchingCategory = categories.find(
+    (cat) => cat.name === selectedCategory
+ );
+ if (matchingCategory) {
+    setSubcategory(matchingCategory.subcategories[0]); // Set default subcategory from matching category
+ }
+};
+  
+  useEffect(() => {
+    setSubcategory(
+      categories.find((cat) => cat.name === category)?.subcategories[0]
+    );
+  }, [category]);
+
+
 
   return (
     <div className="d-flex vh-100 bg-info justify-content-center align-items-center">
@@ -97,12 +138,6 @@ const Update = (e) => {
             <label htmlFor=""> Product Description</label>
 
             <CKEditor
-              // editor={ClassicEditor}
-              //                 config={{
-              //                     placeholder: 'Product Description',
-              //                 }}
-              //                 data={description} // Set initial data for CKEditor
-              //                 onChange={handleEditorChange}
               editor={ClassicEditor}
               config={{
                 placeholder: "Product Description",
@@ -143,8 +178,41 @@ const Update = (e) => {
               onChange={(e) => setImage(e.target.value)}
             />
           </div>
+
+          <div className="mb-2">
+            <label htmlFor=""> Product Category</label>
+            <select
+              className="custom-select"
+              onChange={handleCategoryChange}
+              value={category}>
+              <option value="">Choose...</option>
+              {categories.map((cat) => (
+                <option key={cat.name} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* Sub-category  */}
+          <div className="mb-2">
+            <label htmlFor=""> Product Sub-category</label>
+            <select
+              className="custom-select"
+              onChange={(e) => setSubcategory(e.target.value)}
+              value={subcategory}>
+              <option value="">Choose...</option>
+              {categories
+                .find((cat) => cat.name === category)
+                ?.subcategories.map((subcat) => (
+                  <option key={subcat} value={subcat}>
+                    {subcat}
+                  </option>
+                ))}
+            </select>
+          </div>
+
           {/* Product Category */}
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">
                 Product Category
@@ -160,9 +228,9 @@ const Update = (e) => {
               <option value="Numbers">1-9</option>
               <option value="Symbols">!-*</option>
             </select>
-          </div>
+          </div> */}
           {/* Sub-category  */}
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">
                 Product Sub-category
@@ -178,7 +246,7 @@ const Update = (e) => {
               <option value="2">B</option>
               <option value="3">C</option>
             </select>
-          </div>
+          </div> */}
           {/* Product Brand */}
           <div className="mb-2">
             <label htmlFor=""> Product Brand</label>
@@ -188,7 +256,6 @@ const Update = (e) => {
               className="form-control"
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
-             
             />
           </div>
           {/* Product Date */}

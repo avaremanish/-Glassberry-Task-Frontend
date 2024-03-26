@@ -8,3 +8,19 @@
     /* width: 200px; */
     border: 1px solid;
 }
+
+.preview-modal{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    color: black;
+
+}
+
+.close{
+    cursor: pointer;
+    font-size: 100px;
+    font-weight: bold;
+}
