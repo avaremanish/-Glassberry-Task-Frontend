@@ -55,7 +55,7 @@ const Product = () => {
         </div>
       ) : (
         <div className=" Product d-flex vh-100 p-3 mb-2 text-white justify-content-center align-items-center">
-          <div className="Context-box w-60 bg-white rounded p-3">
+          <div className="Context-box w-60 bg-white p-3">
             <Link to="/create" className="btn btn-success">
               Add +
             </Link>
@@ -121,94 +121,84 @@ const Product = () => {
                   <div className="Header">Preview</div>{" "}
                 </div>
 
-                
-                  <div class="card">
-                    <div class="container-fliud">
-                      <div class="wrapper row">
-                        <div class="preview col-md-6">
-                          <div class="preview-pic tab-content">
-                            <div> Image: {previewData.image} </div>
-                          </div>
-                          <ul class="preview-thumbnail nav nav-tabs">
-                            <li class="active img-thumbnail">
-                              <a data-target="#pic-1" data-toggle="tab">
-                                <img src="" />
-                              </a>
-                            </li>
-                            <li>
-                              <a data-target="#pic-2" data-toggle="tab">
-                                <img src="http://placekitten.com/200/126" />
-                              </a>
-                            </li>
-                            <li>
-                              <a data-target="#pic-3" data-toggle="tab">
-                                <img src="http://placekitten.com/200/126" />
-                              </a>
-                            </li>
-                            <li>
-                              <a data-target="#pic-4" data-toggle="tab">
-                                <img src="http://placekitten.com/200/126" />
-                              </a>
-                            </li>
-                            <li>
-                              <a data-target="#pic-5" data-toggle="tab">
-                                <img src="http://placekitten.com/200/126" />
-                              </a>
-                            </li>
-                          </ul>
+                <div class="card">
+                  <div class="container-fliud">
+                    <div class="wrapper row">
+                      <div class="preview col-md-6">
+                        <div class="preview-pic tab-content">
+                          <h4> Images {previewData.image} </h4>
                         </div>
-                        <div class="details col-md-6 ">
-                          <h3 class="product-title"> {previewData.name} </h3>
-                          <h5>Brand: {previewData.brand}</h5>
-                          <p className="product-description">
-                            <strong>Desctiption: </strong>{" "}
-                            {previewData.description}
-                          </p>
-                          <h4 class="price">Features</h4>
-                          <p class="vote">
-                            <strong>{previewData.features}</strong>
-                            {/* <strong>(87 votes)</strong> */}
-                          </p>
-                          <h5 class="sizes">
-                            Category :
-                            <span
-                              class="size"
-                              data-toggle="tooltip"
-                              title="small">
-                              - {previewData.category}
-                            </span>
-                          </h5>
-                          <h6 class="colors">
-                            Sub-Category :
-                            <span
-                              class="color orange not-available"
-                              data-toggle="tooltip"
-                              title="Not In store">
-                              {" "}
-                              {previewData.subcategory}
-                            </span>
-                            <span class="color green"></span>
-                            <span class="color blue"></span>
-                          </h6>
-                          <div class="action">
-                            <button
-                              class="add-to-cart btn btn-default"
-                              type="button">
-                              Date:
-                            </button>
-                            <button class="like btn btn-default" type="button">
-                              <span class="fa fa-heart">
-                                {" "}
-                                {previewData.date}
-                              </span>
-                            </button>
-                          </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                          <img src="..." class="rounded float-left" alt="..." />
+                          <img
+                            src="..."
+                            class="rounded float-right"
+                            alt="..."
+                          />
+
+                          <li>
+                            <img
+                              src="..."
+                              class="rounded float-right"
+                              alt="..."
+                            />
+                            <img
+                              src="..."
+                              class="rounded float-right"
+                              alt="..."
+                            />
+                          </li>
+              
+                        </ul>
+                      </div>
+                      <div class="details col-md-6 ">
+                        <h3 class="product-title"> {previewData.name} </h3>
+                        <h5>Brand: {previewData.brand}</h5>
+                        <p className="product-description">
+                          <strong>Desctiption: </strong>{" "}
+                          {previewData.description}
+                        </p>
+                        <h4 class="price">Features</h4>
+                        <p class="vote">
+                          <strong>{previewData.features}</strong>
+                          {/* <strong>(87 votes)</strong> */}
+                        </p>
+                        <h5 class="sizes">
+                          Category :
+                          <span
+                            class="size"
+                            data-toggle="tooltip"
+                            title="small">
+                            - {previewData.category}
+                          </span>
+                        </h5>
+                        <h6 class="colors">
+                          Sub-Category :
+                          <span
+                            class="color orange not-available"
+                            data-toggle="tooltip"
+                            title="Not In store">
+                            {" "}
+                            {previewData.subcategory}
+                          </span>
+                          <span class="color green"></span>
+                          <span class="color blue"></span>
+                        </h6>
+                        <div class="action">
+                          <button
+                            class="add-to-cart btn btn-default"
+                            type="button">
+                            Date:
+                          </button>
+                          <button class="like btn btn-default" type="button">
+                            <span class="fa fa-heart"> {previewData.date}</span>
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              
+              </div>
             </div>
           )}
         </div>
