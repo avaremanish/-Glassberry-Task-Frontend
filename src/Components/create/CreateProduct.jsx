@@ -77,14 +77,33 @@ const Submit = (e) => {
   //       setImage(e.target.files[null])
 
   //  }
-   const handleImage = (e) => {
-      
-    console.log(e.target.files);
-     const file = e.target.files[0]; // Get the first file from the FileList
-     if (file) {
-       setImage(file); // Set the file to the state
-     }
-   };
+
+const handleImage = async (e) => {
+  const file = e.target.files[0]; // Get the first file from the FileList
+  if (file && images.length >= 3) {
+    // Check if less than 3 images are uploaded
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "your_cloudinary_upload_preset");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/your_cloud_name/image/upload",
+        formData
+      );
+
+      const imageUrl = response.data.secure_url;
+
+      // Add the image URL to the images array
+      setImages([...images, imageUrl]);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  } else {
+    alert("You can upload a maximum of 3 images.");
+  }
+};
+
 
 
   return (
@@ -151,7 +170,7 @@ const Submit = (e) => {
             <label htmlFor=""> Product Image</label>
             <input
               type="file"
-              // multiple
+              multiple
               className="file"
               // onChange={(e) => setImage(e.target.files[0])}
               onChange={handleImage}
