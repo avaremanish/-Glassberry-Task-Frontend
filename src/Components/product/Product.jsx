@@ -148,7 +148,6 @@ const Product = () => {
                               alt="..."
                             />
                           </li>
-              
                         </ul>
                       </div>
                       <div class="details col-md-6 ">
@@ -169,7 +168,8 @@ const Product = () => {
                             class="size"
                             data-toggle="tooltip"
                             title="small">
-                            - {previewData.category}
+                            {" "}
+                            {previewData.category}
                           </span>
                         </h5>
                         <h6 class="colors">
