@@ -121,6 +121,7 @@ const handleImage = async (e) => {
               type="text"
               placeholder="Enter Product Name"
               className="form-control"
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -131,6 +132,7 @@ const handleImage = async (e) => {
               type="text"
               placeholder="Enter Product Features"
               className="form-control"
+              required
               onChange={(e) => setFeatures(e.target.value)}
             />
           </div>
@@ -187,6 +189,7 @@ const handleImage = async (e) => {
             <select
               className="custom-select"
               onChange={handleCategoryChange}
+              required
               value={category}>
               <option value="">Choose...</option>
               {categories.map((cat) => (
@@ -202,6 +205,7 @@ const handleImage = async (e) => {
             <select
               className="custom-select"
               onChange={(e) => setSubcategory(e.target.value)}
+              required
               value={subcategory}>
               <option value="">Choose...</option>
               {categories
@@ -214,40 +218,7 @@ const handleImage = async (e) => {
             </select>
           </div>
 
-          {/* Product Category */}
-          {/* <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
-                Product Category
-              </label>
-            </div>
-            <select
-              class="custom-select"
-              id="inputGroupSelect01"
-              onChange={(e) => setCategory(e.target.value)}>
-              <option selected>Choose...</option>
-              <option value="Alphabets">A-Z</option>
-              <option value="Numbers">1-9</option>
-              <option value="Symbols">!-*</option>
-            </select>
-          </div> */}
-          {/* Sub-category  */}
-          {/* <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
-                Product Sub-category
-              </label>
-            </div>
-            <select
-              class="custom-select"
-              id="inputGroupSelect01"
-              onChange={(e) => setSubcategory(e.target.value)}>
-              <option selected>Choose...</option>
-              <option value="1">A</option>
-              <option value="2">B</option>
-              <option value="3">C</option>
-            </select>
-          </div> */}
+  
           {/* Product Brand */}
           <div className="mb-2">
             <label htmlFor=""> Product Brand</label>
@@ -255,6 +226,7 @@ const handleImage = async (e) => {
               type="text"
               placeholder="Enter Brand Name"
               className="form-control"
+              required
               onChange={(e) => setBrand(e.target.value)}
             />
           </div>
@@ -265,6 +237,7 @@ const handleImage = async (e) => {
               type="date"
               placeholder="Enter Product Name"
               className="form-control"
+              required
               onChange={(e) => setDate(e.target.value)}
             />
           </div>
