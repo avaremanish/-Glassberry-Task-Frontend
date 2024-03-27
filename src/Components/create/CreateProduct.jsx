@@ -28,7 +28,7 @@ function CreateProduct() {
   const [name, setName] = useState('')
   const [features, setFeatures] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState([]);
+  const [image, setImage] = useState(null);
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
   const [brand, setBrand] = useState('');
@@ -70,6 +70,20 @@ const Submit = (e) => {
    const handleCategoryChange = (e) => {
      setCategory(e.target.value);
      setSubcategory(""); // Reset sub-category when category changes
+   };
+
+  //  const handleImage=(e) =>{
+  //   console.log(e.target.files);
+  //       setImage(e.target.files[null])
+
+  //  }
+   const handleImage = (e) => {
+      
+    console.log(e.target.files);
+     const file = e.target.files[0]; // Get the first file from the FileList
+     if (file) {
+       setImage(file); // Set the file to the state
+     }
    };
 
 
@@ -137,9 +151,10 @@ const Submit = (e) => {
             <label htmlFor=""> Product Image</label>
             <input
               type="file"
-              multiple
-              className="form-control"
-              onChange={(e) => setImage(e.target.files)}
+              // multiple
+              className="file"
+              // onChange={(e) => setImage(e.target.files[0])}
+              onChange={handleImage}
             />
             {/* <input
               type="text"

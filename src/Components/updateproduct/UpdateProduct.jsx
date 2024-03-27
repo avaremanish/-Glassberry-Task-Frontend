@@ -26,15 +26,15 @@ const UpdateProduct = () => {
 
 
            const{id} = useParams()
-            const [name, setName] = useState();
-            const [features, setFeatures] = useState();
-            const [description, setDescription] = useState();
-             const [image, setImage] = useState();
-             const [category, setCategory] = useState();
-             const [subcategory, setSubcategory] = useState();
-             const [brand, setBrand] = useState();
-             const [date, setDate] = useState();
-            const navigate = useNavigate();
+            const [name, setName] = useState('');
+            const [features, setFeatures] = useState('');
+            const [description, setDescription] = useState('');
+             const [image, setImage] = useState('');
+             const [category, setCategory] = useState('');
+             const [subcategory, setSubcategory] = useState('');
+             const [brand, setBrand] = useState('');
+             const [date, setDate] = useState('');
+            const navigate = useNavigate('');
      
             useEffect(() => {
               axios
