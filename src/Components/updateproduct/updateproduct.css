@@ -1,0 +1,17 @@
+.Update{
+  background-color: #41658A;
+}
+
+.Update-Box{
+    border-radius: 24px;
+        background: #41658A;
+        box-shadow: 35px 35px 70px #1c2b3b,
+            -35px -35px 70px #669fd9;
+}
+
+.Update-Form{
+        padding: 15px;
+        background-color: #ffff;
+        font-weight: 450;
+        
+}

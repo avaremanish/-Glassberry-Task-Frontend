@@ -107,9 +107,9 @@ const handleImage = async (e) => {
 
 
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
-        <form onSubmit={Submit}>
+    <div className="Create-Product d-flex vh-100 justify-content-center align-items-center">
+      <div className="w-50 bg-white p-3 Form-Box">
+        <form onSubmit={Submit} className='Form'>
           <h2> Add Product</h2>
           {/* Product Name */}
           <div className="mb-2">
@@ -167,7 +167,7 @@ const handleImage = async (e) => {
 
           {/* Product Image */}
           <div className="mb-2">
-            <label htmlFor=""> Product Image</label>
+            <label htmlFor=""> Product Image : </label> <br/>
             <input
               type="file"
               multiple
@@ -183,7 +183,7 @@ const handleImage = async (e) => {
             /> */}
           </div>
           <div className="mb-2">
-            <label htmlFor=""> Product Category</label>
+            <label htmlFor=""> Product Category: </label> <br/>
             <select
               className="custom-select"
               onChange={handleCategoryChange}
@@ -198,7 +198,7 @@ const handleImage = async (e) => {
           </div>
           {/* Sub-category  */}
           <div className="mb-2">
-            <label htmlFor=""> Product Sub-category</label>
+            <label htmlFor=""> Product Sub-category:</label> <br/>
             <select
               className="custom-select"
               onChange={(e) => setSubcategory(e.target.value)}

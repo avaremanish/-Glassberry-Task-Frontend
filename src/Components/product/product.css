@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #496a81;
+    height: 100vh;
 }
 
 .Action-Buttons {
@@ -12,6 +14,10 @@
 
 .Context-box {
     position: absolute;
+border-radius: 24px;
+    background: #496a81;
+    box-shadow: -35px 35px 70px #1f2e37,
+        35px -35px 70px #73a6cb;
 }
 
 .preview-content {
@@ -67,6 +73,10 @@
 .Context-box{
     position: absolute;
 }
+
+
+
+
 .preview-content{
     position:relative;
 }
@@ -113,10 +123,11 @@
          align-items:center;
         justify-content: center;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 50vh;  
+        gap: 15px;
         background-color: #61707d; 
         height: 100vh;
+        color: #ffff;
+   
 }
 .typewriter {
    
@@ -375,3 +386,19 @@
         box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
     }
 }
+
+
+.container{
+    border-radius: 24px;
+        background: #ffc482;
+        box-shadow: -35px 35px 70px #6e5438,
+            35px -35px 70px #ffffcc;
+            padding: 20px 40px;
+}
+.card{
+    border-radius: 25px;
+    padding:25px;
+    background: #f0f0f0;
+ 
+}
+

@@ -12,7 +12,7 @@ const Product = () => {
       // Simulate loading delay (remove this in production)
       const timeout = setTimeout(() => {
         setLoading(false); // Set loading to false after delay
-      }, 6000); // Adjust the delay time as needed
+      }, 3000); // Adjust the delay time as needed
 
       return () => clearTimeout(timeout);
     }, []);
@@ -51,10 +51,10 @@ const Product = () => {
             <div class="paper"></div>
             <div class="keyboard"></div>
           </div>
-          <h3> Loading...</h3>
+          <h1> Loading . . .</h1>
         </div>
       ) : (
-        <div className="d-flex vh-100 p-3 mb-2 bg-dark text-white justify-content-center align-items-center">
+        <div className=" Product d-flex vh-100 p-3 mb-2 text-white justify-content-center align-items-center">
           <div className="Context-box w-60 bg-white rounded p-3">
             <Link to="/create" className="btn btn-success">
               Add +
@@ -109,8 +109,8 @@ const Product = () => {
             </table>
           </div>
           {previewData && (
-            <div className="Popover preview-modal w-50 alert alert-warning ">
-              <div className="preview-content">
+            <div className="container preview-modal w-50 alert alert-warning ">
+              <div className=" preview-content">
                 <div className="Popover-Head">
                   <div>
                     {" "}
@@ -121,7 +121,7 @@ const Product = () => {
                   <div className="Header">Preview</div>{" "}
                 </div>
 
-                <div class="container">
+                
                   <div class="card">
                     <div class="container-fliud">
                       <div class="wrapper row">
@@ -208,7 +208,7 @@ const Product = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              
             </div>
           )}
         </div>

@@ -107,9 +107,9 @@ const handleCategoryChange = (e) => {
 
 
   return (
-    <div className="d-flex vh-100 bg-info justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
-        <form onSubmit={Update}>
+    <div className="Update d-flex vh-100 justify-content-center align-items-center">
+      <div className="w-50 bg-white p-3 Update-Box">
+        <form onSubmit={Update} className='Update-Form'>
           <h2> Update Product Details</h2>
           <div className="mb-2">
             <label htmlFor="" className="font-weight-bold">
