@@ -65,7 +65,7 @@ const Product = () => {
                   <th scope="row">Product Name</th>
                   <th>Product Features</th>
                   <th>Product Description</th>
-                  <th> Images</th>
+                  {/* <th> Images</th> */}
                   <th>Category</th>
                   <th>Sub-category</th>
                   <th> Brand</th>
@@ -79,7 +79,7 @@ const Product = () => {
                     <td>{product.name}</td>
                     <td>{product.features}</td>
                     <td>{product.description}</td>
-                    <td>{product.image}</td>
+                    {/* <td>{product.image}</td> */}
                     <td>{product.category}</td>
                     <td>{product.subcategory}</td>
                     <td>{product.brand}</td>
